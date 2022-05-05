@@ -1,0 +1,59 @@
+# Copyright (C) 2022 SuperAdmin
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+#
+# Generic
+#
+responsetxt = ERROR. Valor del codigo no valido para imprimir. Cambie el tipo de codigo.
+
+# Module label 'ModuleBarcodeprodName'
+ModuleBarcodeprodName = Pegatinas
+# Module description 'ModuleBarcodeprodDesc'
+ModuleBarcodeprodDesc = Pegatinas para gondola de productos.
+stickersmenutext = Pegatinas
+btnobtener = Obtener Producto
+#
+# Admin page
+#
+BarcodeprodSetup = Barcodeprod setup
+Settings = Settings
+BarcodeprodSetupPage = Pagina de configuracion.
+BARCODEPROD_MYPARAM1 = My param 1
+BARCODEPROD_MYPARAM1Tooltip = My param 1 tooltip
+BARCODEPROD_MYPARAM2=My param 2
+BARCODEPROD_MYPARAM2Tooltip=My param 2 tooltip
+
+
+#
+# About page
+#
+About = About
+BarcodeprodAbout = About Barcodeprod
+BarcodeprodAboutPage = Barcodeprod about page
+
+#
+# Index
+#
+BarcodeprodArea = Imprimir Pegatinas
+EtiquetaProducto = Nombre del Producto
+PrecioTcc = Precio $
+BarcodeType = Tipo de codigo de barras   
+BarcodeValue = Numero del codigo de barras 
+InfoAdicional = Informacion adicional
+#
+# Sample widget
+#
+MyWidget = My widget
+MyWidgetDescription = My widget description

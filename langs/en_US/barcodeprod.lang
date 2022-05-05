@@ -1,0 +1,61 @@
+# Copyright (C) 2022 SuperAdmin
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+#
+# Generic
+#
+responsetxt = ERROR. Invalid code value to print. Change the code type.
+
+# Module label 'ModuleBarcodeprodName'
+ModuleBarcodeprodName = Stickers
+# Module description 'ModuleBarcodeprodDesc'
+ModuleBarcodeprodDesc = Product shelf stickers.
+stickersmenutext = Stickers
+btnobtener = Get Product
+
+#
+# Admin page
+#
+BarcodeprodSetup = Barcodeprod setup
+Settings = Settings
+BarcodeprodSetupPage = Configuration page.
+BARCODEPROD_MYPARAM1 = My param 1
+BARCODEPROD_MYPARAM1Tooltip = My param 1 tooltip
+BARCODEPROD_MYPARAM2=My param 2
+BARCODEPROD_MYPARAM2Tooltip=My param 2 tooltip
+
+
+#
+# About page
+#
+About = About
+BarcodeprodAbout = About Barcodeprod
+BarcodeprodAboutPage = Barcodeprod about page
+
+#
+# Index
+#
+BarcodeprodArea = Print Stickers
+EtiquetaProducto = Product name
+PrecioTcc = Price $
+BarcodeType = Barcode type   
+BarcodeValue = Barcode number
+InfoAdicional = Additional Information
+
+#
+# Sample widget
+#
+MyWidget = My widget
+MyWidgetDescription = My widget description
