@@ -178,7 +178,7 @@ jQuery(document).ready(function() {
 		extratxt=$("#extratxt").val();
 		$.ajax({
 			type: 'POST',
-			url: '<?php echo DOL_URL_ROOT;?>/custom/barcodeprod/printfile.php?action=printbarcode',
+			url: '<?php echo DOL_URL_ROOT;?>/custom/barcodeprod/printfile.php?action=printbarcode&token=<?php echo newToken();?>',
 			data:{etiquetaproducto:etiquetaproducto,preciotcc:preciotcc,fkbarcodetype:fkbarcodetype,forbarcode:forbarcode,extratxt:extratxt},
 			success: function(data) {
 
