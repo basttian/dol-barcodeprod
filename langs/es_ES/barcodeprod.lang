@@ -46,6 +46,11 @@ BarcodeprodAboutPage = Barcodeprod about page
 #
 # Index
 #
+
+qtytitle=Cantidad de impresiones.
+qtyinfo=Papel predeterminado (A4)
+qty=Cantidad de etiquetas a imprimir
+
 BarcodeprodArea = Imprimir Pegatinas
 EtiquetaProducto = Nombre del Producto
 PrecioTcc = Precio $

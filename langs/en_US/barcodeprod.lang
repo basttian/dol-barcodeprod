@@ -28,6 +28,9 @@ btnobtener = Get Product
 #
 # Admin page
 #
+qtytitle=Number of impressions.
+qtyinfo=Default paper (A4)
+qty=Quantity to print
 BarcodeprodSetup = Barcodeprod setup
 Settings = Settings
 BarcodeprodSetupPage = Configuration page.

@@ -56,6 +56,7 @@ $preciotcc = GETPOST('preciotcc', 'alphanohtml');
 $fkbarcodetype=GETPOST('fkbarcodetype', 'alphanohtml');
 $forbarcode= GETPOST('forbarcode', 'alphanohtml');
 $extratxt= GETPOST('extratxt', 'alphanohtml');
+$qty = GETPOST('qty','int');
 /*
 * Actions
 */
@@ -93,7 +94,7 @@ try {
 		'stretch' => false,
 		'fitwidth' => true,
 		'cellfitalign' => '',
-		'border' => true,
+		'border' => false,
 		'hpadding' => 'auto',
 		'vpadding' => 'auto',
 		'fgcolor' => array(0,0,0),
@@ -123,7 +124,7 @@ try {
 		
 		$styleCODABAR = array(
 				'position'=>'S', 
-				'border'=>true, 
+				'border'=>false, 
 				'padding'=>2, 
 				'fgcolor'=> array(0,0,0), 
 				'bgcolor'=>array(255,255,255), 
@@ -132,6 +133,8 @@ try {
 				'fontsize'=>6, 
 				'stretchtext'=>4
 		);
+		
+
 		
 
 		$pdf->AddPage();
@@ -149,12 +152,29 @@ try {
 		
 		if ($fkbarcodetype=="UPC") {
 		$html = '';
-		for ($i = 0; $i < 12; $i++) {
+		for ($i = 0; $i < $qty; $i++) {
 			$html.= '';
-			$html.= $pdf->Cell(0, 0,"$ ".$preciotcc, 0, 1);
-			$html.= $pdf->Cell(0, 0, $etiquetaproducto, 0, 1);
-			$html.= $pdf->write1DBarcode( $forbarcode , 'CODABAR', '', '', '70', 18, 0.4, $styleCODABAR, 'N');
-			$html.= $pdf->Cell(0, 0, $extratxt, 0, 1);
+			$html.=
+
+				$pdf->write1DBarcode( $forbarcode , 'CODABAR', '', '', '50', 28, 0.4, $styleCODABAR, 'T');
+
+				$pdf->SetFont('', '', 8);
+				$pdf->MultiCell(39, 10, $etiquetaproducto, '', 'C', false, 1, null, null, true, 0, false, true, 0, 'M', true);
+
+				if(strlen($preciotcc) <= 7){
+					$pdf->SetFont('', 'B', 24);
+				}else if(strlen($preciotcc) > 7 && strlen($preciotcc) < 12 ){
+					$pdf->SetFont('', 'B', 18);
+				}else{
+					$pdf->SetFont('', 'B', 14);
+				}
+				$pdf->MultiCell(0, 18,"$ ".$preciotcc, '', 'R', false, 1, null, null, true, 0, false, true, 0, 'M', false);
+				
+				if(!empty($extratxt)){
+					$pdf->SetFont('', '', 12);
+					$pdf->MultiCell(0, 0, $extratxt, 'T', 'C', false, 1, null, null, true, 0, false, true, 0, 'M', false);
+				}
+
 			$html.= $pdf->Ln();
 			$html.= '';
 		};
@@ -164,12 +184,28 @@ try {
 		
 		if ($fkbarcodetype=="EAN13") {
 		$html = '';
-			for ($i = 0; $i < 12; $i++) {
+			for ($i = 0; $i < $qty; $i++) {
 				$html.= '';
-				$html.= $pdf->Cell(0, 0,"$ ".$preciotcc, 0, 1);
-				$html.= $pdf->Cell(0, 0, $etiquetaproducto, 0, 1);
-				$html.= $pdf->write1DBarcode( $forbarcode , 'EAN13', '', '', '', 18, 0.4, $styleEAN13, 'N');
-				$html.= $pdf->Cell(0, 0, $extratxt, 0, 1);
+				
+				$html.= 
+					$pdf->write1DBarcode( $forbarcode , 'EAN13', '', '', '50', 28, 0.4, $styleEAN13, 'T');
+					$pdf->SetFont('', '', 8);
+					$pdf->MultiCell(43, 10, $etiquetaproducto, '', 'C', false, 1, null, null, true, 0, false, true, 0, 'M', true);
+
+					if(strlen($preciotcc) <= 7){
+						$pdf->SetFont('', 'B', 24);
+					}else if(strlen($preciotcc) > 7 && strlen($preciotcc) < 12 ){
+						$pdf->SetFont('', 'B', 18);
+					}else{
+						$pdf->SetFont('', 'B', 14);
+					}
+					$pdf->MultiCell(0, 18,"$ ".$preciotcc, '', 'R', false, 1, null, null, true, 0, false, true, 0, 'M', false);
+					
+					if(!empty($extratxt)){
+						$pdf->SetFont('', '', 12);
+						$pdf->MultiCell(0, 0, $extratxt, 'T', 'C', false, 1, null, null, true, 0, false, true, 0, 'M', false);
+					}
+				
 				$html.= $pdf->Ln();
 				$html.= '';
 			};
@@ -178,12 +214,27 @@ try {
 		
 		if($fkbarcodetype=="Code 128"){
 			$html = '';
-			for ($i = 0; $i < 12; $i++) {
+			for ($i = 0; $i < $qty; $i++) {
 				$html.= '';
-				$html.= $pdf->Cell(0, 0,"$ ".$preciotcc, 0, 1);
-				$html.= $pdf->Cell(0, 0, $etiquetaproducto, 0, 1);
-				$html.= $pdf->write1DBarcode( $forbarcode , 'C128', '', '', '', 18, 0.4, $styleCODE128, 'N');
-				$html.= $pdf->Cell(0, 0, $extratxt, 0, 1);
+				
+				$html.= $pdf->write1DBarcode( $forbarcode , 'C128', '', '', '50', 28, 0.4, $styleCODE128, 'T');
+				$pdf->SetFont('', '', 8);
+				$pdf->MultiCell(39, 10, $etiquetaproducto, '', 'C', false, 1, null, null, true, 0, false, true, 0, 'M', true);
+
+				if(strlen($preciotcc) <= 7){
+					$pdf->SetFont('', 'B', 24);
+				}else if(strlen($preciotcc) > 7 && strlen($preciotcc) < 12 ){
+					$pdf->SetFont('', 'B', 18);
+				}else{
+					$pdf->SetFont('', 'B', 14);
+				}
+				$pdf->MultiCell(0, 18,"$ ".$preciotcc, '', 'R', false, 1, null, null, true, 0, false, true, 0, 'M', false);
+				
+				if(!empty($extratxt)){
+					$pdf->SetFont('', '', 12);
+					$pdf->MultiCell(0, 0, $extratxt, 'T', 'C', false, 1, null, null, true, 0, false, true, 0, 'M', false);
+				}
+
 				$html.= $pdf->Ln();
 				$html.= '';
 			};

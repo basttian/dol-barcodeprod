@@ -45,7 +45,7 @@ class modBarcodeprod extends DolibarrModules
 
 		// Id for module (must be unique).
 		// Use here a free id (See in Home -> System information -> Dolibarr for list of used modules id).
-		$this->numero = 50060106106; // TODO Go on page https://wiki.dolibarr.org/index.php/List_of_modules_id to reserve an id number for your module
+		$this->numero = 4440544; // TODO Go on page https://wiki.dolibarr.org/index.php/List_of_modules_id to reserve an id number for your module
 
 		// Key text used to identify module (for permissions, menus, etc...)
 		$this->rights_class = 'barcodeprod';
@@ -330,7 +330,7 @@ class modBarcodeprod extends DolibarrModules
 				'langs'=>'barcodeprod@barcodeprod', // Lang file to use (without .lang) by module. File must be in langs/code_CODE/ directory.
 				'position'=>1000 + $r,
 				'enabled'=>'$conf->barcodeprod->enabled', // Define condition to show or hide menu entry. Use '$conf->printproductlabel->enabled' if entry must be visible if module is enabled.
-				'perms'=>$user->rights->barcodeprod->barcodeprod->read, // Use 'perms'=>'$user->rights->printproductlabel->myobject->read' if you want your menu with a permission rules
+				'perms'=>'$user->rights->barcodeprod->barcodeprod->read', // Use 'perms'=>'$user->rights->printproductlabel->myobject->read' if you want your menu with a permission rules
 				'target'=>'',
 				'user'=>'0', // 0=Menu for internal users, 1=external users, 2=both
 		);

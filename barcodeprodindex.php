@@ -132,7 +132,6 @@ print load_fiche_titre($langs->trans("BarcodeprodArea"), '', 'barcode');
 
 print '<div class="fichecenter"><div class="fichethirdleft">';
 
-
 print '<form id="form" action="'.$_SERVER["PHP_SELF"].'" method="POST">';
 print '<input type="hidden" name="action" value="builddocument">';
 print '<input type="hidden" name="token" value="'.currentToken().'">';
@@ -144,8 +143,7 @@ print '<i class="fas fa-search-plus"></i>';
 $form->select_produits(GETPOST('productid', 'int'), 'productid', '', '', 0, -1, 2, '', 0, array(), 0, '1', 0, 'minwidth400imp', 1);
 
 print '<p>';
-print '<input type="submit" id="submitproduct" 
-name="submitproduct" class="button" value="'.(dol_escape_htmltag($langs->trans("btnobtener"))).'">';
+print '<input type="submit" id="submitproduct" name="submitproduct" class="button" value="'.(dol_escape_htmltag($langs->trans("btnobtener"))).'">';
 print '';
 print '</p>';
 
@@ -176,10 +174,11 @@ jQuery(document).ready(function() {
 		fkbarcodetype= $("#select_fk_barcode_type option:selected").text();
 		forbarcode=$("#forbarcode").val();
 		extratxt=$("#extratxt").val();
+		qty=$("#qty").val()
 		$.ajax({
 			type: 'POST',
 			url: '<?php echo DOL_URL_ROOT;?>/custom/barcodeprod/printfile.php?action=printbarcode&token=<?php echo newToken();?>',
-			data:{etiquetaproducto:etiquetaproducto,preciotcc:preciotcc,fkbarcodetype:fkbarcodetype,forbarcode:forbarcode,extratxt:extratxt},
+			data:{etiquetaproducto:etiquetaproducto,preciotcc:preciotcc,fkbarcodetype:fkbarcodetype,forbarcode:forbarcode,extratxt:extratxt,qty:parseInt(qty)},
 			success: function(data) {
 
 				try {
@@ -228,6 +227,7 @@ jQuery(document).ready(function() {
 <?php
 // Barcode price label
 print '<div class="tagtable">';
+
 print '	<div class="tagtr">';
 print '	<div class="tagtd" style="overflow: hidden; white-space: nowrap; max-width: 600px;">';
 print $langs->trans("EtiquetaProducto").' &nbsp; ';
@@ -277,7 +277,24 @@ print '<br><input size="40" class="button" id="submitform" '.((GETPOST("selector
 print '</form>';
 print '<br>';
 print '<div id="txtresult"></div>';
-print '<div class="fichetwothirdright"></div>';
+print '</div>';
+
+print '<div class="fichetwothirdright">';
+
+print '<h1>'.$langs->trans("qtytitle").'</h1>';
+print '<p>'.$langs->trans("qtyinfo").'</p>';
+
+
+print '	<div class="tagtr">';
+print '	<div class="tagtd" style="overflow: hidden; white-space: nowrap;">';
+print $langs->trans("qty").' &nbsp; ';
+print '</div><div class="tagtd" style="overflow: hidden; white-space: nowrap;">';
+print '<input size="6" type="number" id="qty" placeholder="Cant." value="10" >';
+print '</div></div>';
+print '<br>';
+
+
+print '</div>';
 
 
 // End of page
