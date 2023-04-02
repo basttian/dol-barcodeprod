@@ -133,7 +133,7 @@ try {
 				'fontsize'=>6, 
 				'stretchtext'=>4
 		);
-		
+
 
 		
 
@@ -240,6 +240,29 @@ try {
 			};
 			$html.= '';	
 		}
+
+		/** QR CODE  */
+		if($fkbarcodetype=="Qr Code"){
+	
+			$styleQrCode = array(
+				'border' => 1,
+				'padding' => 'auto',
+				'fgcolor' => array(0,0,0),
+				'bgcolor' => array(255,255,255)
+			);
+
+			$code = $etiquetaproducto.' $'.$preciotcc.' - '.$extratxt;
+			$html = '';
+			for ($i = 0; $i < $qty; $i++) {
+				$html.= '';
+				$html.= $pdf->MultiCell(0,0,$pdf->write2DBarcode($code, 'QRCODE,Q', null, null, 50, 50, $styleQrCode, 'N'),0,'J',false,0,null,null,true,0,false,true,0,'M',false);
+
+				$html.= $pdf->Ln();
+				$html.= '';
+			}
+			$html.= '';	
+		}
+
 		
 		//$html= '<p>'.$fkbarcodetype.'</p>';
 		
