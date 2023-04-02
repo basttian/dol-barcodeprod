@@ -719,7 +719,7 @@ foreach ($myTmpObjects as $myTmpObjectKey => $myTmpObjectArray) {
 }
 */
 if (empty($setupnotempty)) {
-	print '<p><b>Los siguientes códigos de barra EAN13, Code 128, UPC.<br>Deben estar activados desde la configuración del módulo Códigos de Barra.</b></p><a href="'.DOL_URL_ROOT.'/admin/barcode.php'.'"><i class="fa fa-barcode" aria-hidden="true"></i> Barcode module.</a><br>';
+	print '<p><b>Los siguientes códigos de barra Code 128, EAN13, Qr Code, UPC.<br>Deben estar activados desde la configuración del módulo Códigos de Barra.</b></p><p><em>Seleccionar en generador de código <b>TCPDF-barcode</b>.</em></p><a href="'.DOL_URL_ROOT.'/admin/barcode.php'.'"><i class="fa fa-barcode" aria-hidden="true"></i> Barcode module.</a><br>';
 	print '<br>'.$langs->trans("NothingToSetup");
 }
 
